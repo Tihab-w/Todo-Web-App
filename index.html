@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i>My Todo List</h1>
+            <p class="subtitle">Organize your task efficiently</p>
+        </header>
+
+        <div class="app-wrapper">
+            <!--Add task form -->
+            <div class="task-form">
+                <h2>Add new task</h2>
+                <form id="addTaskForm">
+                    <div class="form-group">
+                        <input type="text" id="taskTitle" placeholder="Task title" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dueDate">Due Date:</label>
+                            <input type="date" id="dueDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority:</label>
+                            <select id="priority">
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-add">
+                        <i class="fas fa-plus"></i>Add Task
+                    </button>
+                </form>
+            </div>
+
+            <!--Task filters-->
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Tasks</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <!--Task Status-->
+            <div class="status">
+                <div class="stat-item">
+                    <span class="stat-count" id="totalTasks">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-count" id="activeTasks">0</span>
+                    <span class="stat-label">Active</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-count" id="completedTasks">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+
+            <!--Task list -->
+            <div class="task-list">
+                <h2>Your Tasks</h2>
+                <div id="tasksContainer">
+                    <!--tasks will loaded here dynamically-->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>Loading tasks...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Edit task model -->
+        <div id="editModel" class="model">
+            <div class="model-content">
+                <span class="close-model">&times;</span>
+                <h2>Edit Tasks</h2>
+                <form id="editTaskForm">
+                    <input type="hidden" id="editTaskId">
+                    <div class="form-group">
+                        <input type="text" id="editTaskTitle" placeholder="Task title" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="editTaskDescription" placeholder="Task Description"></textarea>
+                    </div>
+                    <div class="form-row">
+                           <div class="form-group">
+                        <label for="editDuedate">Due Date:</label>
+                        <input type="date" id="editDueDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPriority">Priority</label>
+                        <select id="editPriority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="editIsComplete">
+                            <span>Task Completed</span>
+                        </label>
+                    </div>
+                    <div class="model-buttons">
+                        <button type="submit" class="btn-save">Save Changes</button>
+                        <button type="button" class="btn-cancel">Cancel</button>
+                    </div>
+                 
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p> Todo list app &copy; 2026 | Built with HTML CSS JavaScript PHP & MySql</p>
+        </footer>
+    </div>
+
+     <script src="script.js"></script>
+</body>
+</html>
